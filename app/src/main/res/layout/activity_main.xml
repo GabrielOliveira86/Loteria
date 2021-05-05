@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sortearButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -31,5 +32,91 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bingoTextView" />
+
+    <EditText
+        android:id="@+id/apostaEditText1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:hint="1"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/facaJogoTextView" />
+
+    <EditText
+        android:id="@+id/apostaEditText2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:hint="2"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/apostaEditText1"
+        app:layout_constraintTop_toBottomOf="@+id/facaJogoTextView" />
+
+    <EditText
+        android:id="@+id/apostaEditText3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:hint="3"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/apostaEditText2"
+        app:layout_constraintTop_toBottomOf="@+id/facaJogoTextView" />
+
+    <EditText
+        android:id="@+id/apostaEditText4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:hint="4"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/apostaEditText1"
+        app:layout_constraintTop_toBottomOf="@+id/apostaEditText1" />
+
+    <EditText
+        android:id="@+id/apostaEditText5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_corners"
+        android:ems="10"
+        android:hint="5"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/apostaEditText4"
+        app:layout_constraintTop_toBottomOf="@+id/apostaEditText1" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/sortear"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apostaEditText4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
