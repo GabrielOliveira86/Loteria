@@ -16,7 +16,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/lotto_app"
         android:textColor="#2196F3"
-        android:textSize="64sp"
+        android:textSize="72sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="44dp"
         android:text="@string/faca_seu_jogo"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bingoTextView" />
@@ -42,9 +43,11 @@
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:hint="1"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/apostaEditText2"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/facaJogoTextView" />
 
@@ -57,8 +60,10 @@
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:hint="2"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/apostaEditText3"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/apostaEditText1"
         app:layout_constraintTop_toBottomOf="@+id/facaJogoTextView" />
 
@@ -72,9 +77,10 @@
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:hint="3"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/apostaEditText2"
         app:layout_constraintTop_toBottomOf="@+id/facaJogoTextView" />
 
@@ -82,13 +88,14 @@
         android:id="@+id/apostaEditText4"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:hint="4"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/apostaEditText5"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/apostaEditText1"
         app:layout_constraintTop_toBottomOf="@+id/apostaEditText1" />
 
@@ -96,13 +103,15 @@
         android:id="@+id/apostaEditText5"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:hint="5"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/apostaEditText3"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/apostaEditText4"
         app:layout_constraintTop_toBottomOf="@+id/apostaEditText1" />
 
