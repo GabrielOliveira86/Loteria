@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Loteria</string>
+    <string name="lotto_app">Lotto App</string>
+    <string name="faca_seu_jogo">Faça seu jogo:</string>
 </resources>
