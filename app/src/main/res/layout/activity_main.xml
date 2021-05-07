@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sortearButton"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -27,12 +27,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:text="@string/faca_seu_jogo"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bingoTextView" />
+
+    <TextView
+        android:id="@+id/numerosSorteadosTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/numeros_sorteados"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sortearButton" />
 
     <EditText
         android:id="@+id/apostaEditText1"
@@ -116,16 +128,91 @@
         app:layout_constraintTop_toBottomOf="@+id/apostaEditText1" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/sortearButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:text="@string/sortear"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apostaEditText4" />
+
+    <TextView
+        android:id="@+id/resultadoTextView1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="06"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/resultadoTextView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numerosSorteadosTextView" />
+
+    <TextView
+        android:id="@+id/resultadoTextView5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="10"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:background="@drawable/rounded_corners"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resultadoTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/resultadoTextView1" />
+
+    <TextView
+        android:id="@+id/resultadoTextView4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="09"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:background="@drawable/rounded_corners"
+        app:layout_constraintStart_toEndOf="@+id/resultadoTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/resultadoTextView1" />
+
+    <TextView
+        android:id="@+id/resultadoTextView2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="07"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:background="@drawable/rounded_corners"
+        app:layout_constraintEnd_toStartOf="@+id/resultadoTextView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resultadoTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/numerosSorteadosTextView" />
+
+    <TextView
+        android:id="@+id/resultadoTextView3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="08"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:background="@drawable/rounded_corners"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/resultadoTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/numerosSorteadosTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

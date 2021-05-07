@@ -2,5 +2,6 @@
     <string name="app_name">Loteria</string>
     <string name="lotto_app">Lotto App</string>
     <string name="faca_seu_jogo">Faça seu jogo:</string>
+    <string name="numeros_sorteados">Números sorteados:</string>
     <string name="sortear">SORTEAR</string>
 </resources>
