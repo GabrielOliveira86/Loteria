@@ -4,4 +4,5 @@
     <string name="faca_seu_jogo">Faça seu jogo:</string>
     <string name="numeros_sorteados">Números sorteados:</string>
     <string name="sortear">SORTEAR</string>
+    <string name="resetar">RESETAR</string>
 </resources>
