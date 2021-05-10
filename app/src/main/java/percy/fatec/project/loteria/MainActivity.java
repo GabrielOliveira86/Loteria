@@ -3,6 +3,7 @@ package percy.fatec.project.loteria;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import javax.xml.transform.Result;
 
 public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
@@ -26,22 +29,12 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     EditText apostaEditText5;
     Button sortearButton;
 
-    ConstraintLayout numerosSorteadosLayout;
-    TextView numerosSorteadosTextView;
-
-    TextView resultadoTextView1;
-    TextView resultadoTextView2;
-    TextView resultadoTextView3;
-    TextView resultadoTextView4;
-    TextView resultadoTextView5;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         setGameViewElements();
-        setResultViewElements();
     }
 
     private void setGameViewElements() {
@@ -62,36 +55,32 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         sortearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (numerosSorteadosLayout.getVisibility() == View.GONE) {
+                if (validateAllNumbers()) {
                     ArrayList<Integer> sortedNumbers = lotterySort();
-                    setSortedNumberOn(resultadoTextView1, sortedNumbers.get(0).intValue());
-                    setSortedNumberOn(resultadoTextView2, sortedNumbers.get(1).intValue());
-                    setSortedNumberOn(resultadoTextView3, sortedNumbers.get(2).intValue());
-                    setSortedNumberOn(resultadoTextView4, sortedNumbers.get(3).intValue());
-                    setSortedNumberOn(resultadoTextView5, sortedNumbers.get(4).intValue());
-                    numerosSorteadosLayout.setVisibility(View.VISIBLE);
+                    Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
+                    resultIntent.putIntegerArrayListExtra("results", sortedNumbers);
 
-                    sortearButton.setText(R.string.resetar);
-                } else {
-                    numerosSorteadosLayout.setVisibility(View.GONE);
-                    sortearButton.setText(R.string.sortear);
+                    MainActivity.this.startActivity(resultIntent);
                 }
+
             }
         });
+
     }
 
-    private void setResultViewElements() {
-        numerosSorteadosLayout = (ConstraintLayout)findViewById(R.id.sortedNumbersConstraintLayout);
-        numerosSorteadosTextView = (TextView)findViewById(R.id.numerosSorteadosTextView);
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-        resultadoTextView1 = (TextView)findViewById(R.id.resultadoTextView1);
-        resultadoTextView2 = (TextView)findViewById(R.id.resultadoTextView2);
-        resultadoTextView3 = (TextView)findViewById(R.id.resultadoTextView3);
-        resultadoTextView4 = (TextView)findViewById(R.id.resultadoTextView4);
-        resultadoTextView5 = (TextView)findViewById(R.id.resultadoTextView5);
+        resetLayout();
+    }
 
-        numerosSorteadosLayout.setVisibility(View.GONE);
-
+    private void resetLayout() {
+        apostaEditText1.setText("");
+        apostaEditText2.setText("");
+        apostaEditText3.setText("");
+        apostaEditText4.setText("");
+        apostaEditText5.setText("");
     }
 
     @Override
@@ -126,9 +115,8 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         }
     }
 
-    private void setSortedNumberOn(TextView field, Integer value) {
-        String stringValue = value.toString();
-        field.setText(stringValue);
+    private Boolean validateAllNumbers() {
+        return true;
     }
 
     /*
