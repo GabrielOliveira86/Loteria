@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
@@ -140,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
 
             result.add(sorted);
         }
+        Collections.sort(result);
         return result;
     }
 

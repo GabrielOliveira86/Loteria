@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lotto App</string>
+    <string name="lotto_app">Lotto App</string>
+    <string name="do_your_game">Do you bet:</string>
+    <string name="sorted_numbers">Sorted numbers:</string>
+    <string name="sort">SORT</string>
+    <string name="reset">RESET</string>
+    <string name="match">Result:</string>
+    <string name="matches_result">%d HITS</string>
+    <string name="fill_all_fields">Please fill all available fields</string>
+    <string name="fill_right_value">Put a number between 1 and 50</string>
+</resources>

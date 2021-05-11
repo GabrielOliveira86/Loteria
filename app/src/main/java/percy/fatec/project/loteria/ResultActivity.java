@@ -83,9 +83,7 @@ public class ResultActivity extends AppCompatActivity {
     private void setHitQuantity() {
         int hitQuantity = matches();
 
-        if (hitQuantity < 2) {
-            hitResultTextView.setTextColor(Color.YELLOW);
-        } else if (hitQuantity < 4) {
+        if (hitQuantity < 4) {
             hitResultTextView.setTextColor(Color.BLUE);
         } else {
             hitResultTextView.setTextColor(Color.GREEN);
