@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Lotto App</string>
     <string name="lotto_app">Lotto App</string>
-    <string name="do_your_game">Do you bet:</string>
+    <string name="do_your_game">Do your bet:</string>
     <string name="sorted_numbers">Sorted numbers:</string>
     <string name="sort">SORT</string>
     <string name="reset">RESET</string>
