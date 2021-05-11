@@ -1,12 +1,9 @@
 package percy.fatec.project.loteria;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +12,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import javax.xml.transform.Result;
-
 public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
-    int NUMERO_DEZENAS = 5;
+    int MAX_PLAYS = 5;
+    ArrayList<Integer> playedNumbers;
 
     TextView facaJogoTextView;
     EditText apostaEditText1;
@@ -35,6 +31,14 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         setContentView(R.layout.activity_main);
 
         setGameViewElements();
+        playedNumbers = new ArrayList<Integer>();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        resetLayout();
     }
 
     private void setGameViewElements() {
@@ -55,24 +59,25 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         sortearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validateAllNumbers()) {
-                    ArrayList<Integer> sortedNumbers = lotterySort();
-                    Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
-                    resultIntent.putIntegerArrayListExtra("results", sortedNumbers);
-
-                    MainActivity.this.startActivity(resultIntent);
+                if (playedNumbers.size() < 5) {
+                    Toast.makeText(MainActivity.this, R.string.fill_all_fields, Toast.LENGTH_LONG).show();
+                } else {
+                    presentResultActivity();
                 }
-
             }
         });
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private void presentResultActivity() {
+        if (validateAllNumbers()) {
+            ArrayList<Integer> sortedNumbers = lotterySort();
+            Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
+            resultIntent.putIntegerArrayListExtra("results", sortedNumbers);
+            resultIntent.putIntegerArrayListExtra("plays", playedNumbers);
 
-        resetLayout();
+            MainActivity.this.startActivity(resultIntent);
+        }
     }
 
     private void resetLayout() {
@@ -109,8 +114,10 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         if (!stringValue.isEmpty()) {
             Integer value = Integer.parseInt(stringValue);
             if (value > 50 || value <= 0) {
-                Toast.makeText(MainActivity.this, "Digite valores entre 1 e 50", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, R.string.fill_right_value, Toast.LENGTH_LONG).show();
                 field.setText("");
+            } else {
+                playedNumbers.add(Integer.parseInt(stringValue));
             }
         }
     }
@@ -119,14 +126,10 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         return true;
     }
 
-    /*
-     * Função retorna uma array com 5 números gerados randomicamente
-     * sem duplicidade, representando o sorteio da megasena.
-     */
     private ArrayList<Integer> lotterySort() {
         ArrayList<Integer> result = new ArrayList();
 
-        for (int i = 0; i < NUMERO_DEZENAS; i++) {
+        for (int i = 0; i < MAX_PLAYS; i++) {
             int sorted;
             boolean repeated = false;
 

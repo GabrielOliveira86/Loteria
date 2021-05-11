@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">Loteria</string>
+    <string name="app_name">Lotto App</string>
     <string name="lotto_app">Lotto App</string>
-    <string name="faca_seu_jogo">Faça seu jogo:</string>
-    <string name="numeros_sorteados">Números sorteados:</string>
-    <string name="sortear">SORTEAR</string>
-    <string name="resetar">RESETAR</string>
+    <string name="do_your_game">Faça seu jogo:</string>
+    <string name="sorted_numbers">Números sorteados:</string>
+    <string name="sort">SORTEAR</string>
+    <string name="reset">RESETAR</string>
+    <string name="match">Resultado:</string>
+    <string name="matches_result">%d ACERTOS</string>
+    <string name="fill_all_fields">Por favor, preencha os 5 campos</string>
+    <string name="fill_right_value">Digite valores entre 1 e 50</string>
+
 </resources>
