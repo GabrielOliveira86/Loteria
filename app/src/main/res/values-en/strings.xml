@@ -10,4 +10,5 @@
     <string name="matches_result">%d HITS</string>
     <string name="fill_all_fields">Please fill all available fields</string>
     <string name="fill_right_value">Put a number between 1 and 50</string>
+    <string name="repeated_field">Please check your bets. It\'s not allowed to proceed with repeated numbers.</string>
 </resources>

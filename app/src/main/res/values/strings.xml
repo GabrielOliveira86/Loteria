@@ -8,6 +8,7 @@
     <string name="match">Resultado:</string>
     <string name="matches_result">%d ACERTOS</string>
     <string name="fill_all_fields">Por favor, preencha os 5 campos</string>
+    <string name="repeated_field">Por favor, verifique seus campos. Não é possível prosseguir com números repetidos.</string>
     <string name="fill_right_value">Digite valores entre 1 e 50</string>
 
 </resources>

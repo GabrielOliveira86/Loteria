@@ -71,13 +71,16 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     }
 
     private void presentResultActivity() {
-        if (validateAllNumbers()) {
+        if (validateAllNumbers(playedNumbers)) {
             ArrayList<Integer> sortedNumbers = lotterySort();
             Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
             resultIntent.putIntegerArrayListExtra("results", sortedNumbers);
             resultIntent.putIntegerArrayListExtra("plays", playedNumbers);
 
             MainActivity.this.startActivity(resultIntent);
+        } else {
+            Toast.makeText(MainActivity.this, R.string.repeated_field, Toast.LENGTH_SHORT).show();
+            resetLayout();
         }
     }
 
@@ -123,7 +126,14 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         }
     }
 
-    private Boolean validateAllNumbers() {
+    private Boolean validateAllNumbers(ArrayList<Integer> numbers) {
+        ArrayList<Integer> numbersHelper = numbers;
+        Collections.sort(numbersHelper);
+        for (int i = 1; i < numbersHelper.size(); i++) {
+            if (numbersHelper.get(i) == numbersHelper.get(i-1)) {
+                return false;
+            }
+        }
         return true;
     }
 
