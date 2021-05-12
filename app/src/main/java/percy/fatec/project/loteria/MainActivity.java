@@ -42,6 +42,14 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         resetLayout();
     }
 
+    private void resetLayout() {
+        apostaEditText1.setText("");
+        apostaEditText2.setText("");
+        apostaEditText3.setText("");
+        apostaEditText4.setText("");
+        apostaEditText5.setText("");
+    }
+
     private void setGameViewElements() {
         facaJogoTextView = (TextView)findViewById(R.id.facaJogoTextView);
         apostaEditText1 = (EditText)findViewById(R.id.apostaEditText1);
@@ -60,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         sortearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                playedNumbers.clear();
+                addAllItemsToArray();
                 if (playedNumbers.size() < 5) {
                     Toast.makeText(MainActivity.this, R.string.fill_all_fields, Toast.LENGTH_LONG).show();
                 } else {
@@ -67,29 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
                 }
             }
         });
-
-    }
-
-    private void presentResultActivity() {
-        if (validateAllNumbers(playedNumbers)) {
-            ArrayList<Integer> sortedNumbers = lotterySort();
-            Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
-            resultIntent.putIntegerArrayListExtra("results", sortedNumbers);
-            resultIntent.putIntegerArrayListExtra("plays", playedNumbers);
-
-            MainActivity.this.startActivity(resultIntent);
-        } else {
-            Toast.makeText(MainActivity.this, R.string.repeated_field, Toast.LENGTH_SHORT).show();
-            resetLayout();
-        }
-    }
-
-    private void resetLayout() {
-        apostaEditText1.setText("");
-        apostaEditText2.setText("");
-        apostaEditText3.setText("");
-        apostaEditText4.setText("");
-        apostaEditText5.setText("");
     }
 
     @Override
@@ -111,6 +98,14 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
                 validateEnteredNumber(apostaEditText5);
                 break;
         }
+    }
+
+    private void addAllItemsToArray() {
+        validateEnteredNumber(apostaEditText1);
+        validateEnteredNumber(apostaEditText2);
+        validateEnteredNumber(apostaEditText3);
+        validateEnteredNumber(apostaEditText4);
+        validateEnteredNumber(apostaEditText5);
     }
 
     private void validateEnteredNumber(EditText field) {
@@ -135,6 +130,19 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
             }
         }
         return true;
+    }
+
+    private void presentResultActivity() {
+        if (validateAllNumbers(playedNumbers)) {
+            ArrayList<Integer> sortedNumbers = lotterySort();
+            Intent resultIntent = new Intent(MainActivity.this, ResultActivity.class);
+            resultIntent.putIntegerArrayListExtra("results", sortedNumbers);
+            resultIntent.putIntegerArrayListExtra("plays", playedNumbers);
+
+            MainActivity.this.startActivity(resultIntent);
+        } else {
+            Toast.makeText(MainActivity.this, R.string.repeated_field, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private ArrayList<Integer> lotterySort() {

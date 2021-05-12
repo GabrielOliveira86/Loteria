@@ -5,9 +5,10 @@ O trabalho para avaliação nesta disciplina consiste em desenvolver um aplicati
 
 O trabalho foi desenvolvido pelos alunos:
 1. Bruno Alves de Souza;
-2. Gabriel Oliveira dos Santos;
-3. Gabriel Patané Todaro; e
-4. Vitor Luan Pires do Prado
+2. Gabriel dos Santos de Campos;
+3. Gabriel Oliveira dos Santos;
+4. Gabriel Patané Todaro; e
+5. Vitor Luan Pires do Prado
 
 A disciplina é ministrada pelo **Professor Giulliano Paes Carnielli**.
 
